@@ -1,8 +1,12 @@
-homePrice = 400000
-interestRate = .05875/12
+homePrice = int(input("Enter the price of the home: "))
+interestRate = float(input("Enter the interest rate: "))/12
+downPayment = int(input("Enter your down payment: "))
+# homePrice = 400000
+# interestRate = .05875/12
+# downPayment = 90000
+
 insurance = 184
 propertyTaxes = (.01608*homePrice)/12
-downPayment = 90000
 monthlyIncome = 9000
 term = 360
 
@@ -14,4 +18,5 @@ mortgageAfterTaxesAndInsurance = mortgageBeforeTaxesAndInsurance + insurance + p
 
 percentOfMonthlyIncome = mortgageAfterTaxesAndInsurance/monthlyIncome
 
-print("Payment: "+str(mortgageAfterTaxesAndInsurance) + "\n" + "Percent of Monthly Payment: " + str(percentOfMonthlyIncome))
+print("\n"+"Results"+"---------------------"+"\n"
+      "Payment: $"+str(mortgageAfterTaxesAndInsurance) + "\n" + "Percent of Monthly Payment: " + str(percentOfMonthlyIncome*100)+"%" + "\n" + "Affordable: "+str(percentOfMonthlyIncome<=.25))
