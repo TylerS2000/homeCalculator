@@ -17,6 +17,12 @@ mortgageBeforeTaxesAndInsurance = (((interestRate*(1+interestRate)**term))/(((1+
 mortgageAfterTaxesAndInsurance = mortgageBeforeTaxesAndInsurance + insurance + propertyTaxes
 
 percentOfMonthlyIncome = mortgageAfterTaxesAndInsurance/monthlyIncome
+maxPayment = monthlyIncome*.28
+
+
 
 print("\n"+"Results"+"---------------------"+"\n"
-      "Payment: $"+str(mortgageAfterTaxesAndInsurance) + "\n" + "Percent of Monthly Payment: " + str(percentOfMonthlyIncome*100)+"%" + "\n" + "Affordable: "+str(percentOfMonthlyIncome<=.25))
+      "Payment: $"+str(mortgageAfterTaxesAndInsurance) + "\n" + 
+      "Percent of Monthly Payment: " + str(percentOfMonthlyIncome*100)+"%" + "\n" +
+      "Affordable: "+str(percentOfMonthlyIncome<=.28) + "\n" +
+      "Max Affordable Payment Per Month: $" +str(maxPayment) + "\n")
