@@ -25,4 +25,4 @@ print("\n"+"Results"+"---------------------"+"\n"
       "Payment: $"+str(mortgageAfterTaxesAndInsurance) + "\n" + 
       "Percent of Monthly Payment: " + str(percentOfMonthlyIncome*100)+"%" + "\n" +
       "Affordable: "+str(percentOfMonthlyIncome<=.28) + "\n" +
-      "Max Affordable Payment Per Month: $" +str(maxPayment) + "\n")
+      "Max Affordable Payment Per Month: $" +str(maxPayment))

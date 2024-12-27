@@ -16,18 +16,22 @@ export default function Calculator(props) {
         setStateFunction(event.target.value)
     }
 
+    const monthlyInterestRate = interestRateState/12
+    const termInMonths = termState *12
+    const propertyTaxes = (.01608*homePriceState)/12
+    const insurance = 184
     const inputsMap = inputs.map((input)=><div><label for={input.id}>{input.title}</label><input id={input.id} onChange={(e)=>handleChange(e,input.setState)}/></div>)
 
     const principal = homePriceState - downPaymentState
 
-    const numerator = ((interestRateState*(1+interestRateState)**termState))
-    const denominator = (((1+interestRateState)**termState)-1)
-    const mortgageBeforeTaxesAndInsurance = numerator/denominator
+    const mortgageBeforeTaxesAndInsurance = (((monthlyInterestRate*(1+monthlyInterestRate)**termInMonths))/(((1+monthlyInterestRate)**termInMonths)-1))*principal
+
+    const mortgageAfterTaxesAndInsurance = mortgageBeforeTaxesAndInsurance + insurance + propertyTaxes
 
     return(
         <div>
             {inputsMap}
-            {mortgageBeforeTaxesAndInsurance}
+            {mortgageAfterTaxesAndInsurance}
         </div>
         
     )
